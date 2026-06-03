@@ -1,10 +1,11 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { LayoutGrid, Sparkles, Plus } from "lucide-react";
+import { LayoutGrid, Plus } from "lucide-react";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { projectStorage } from "@/lib/storage";
 import type { Project } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import logoMark from "@/assets/nebula-mark.png";
 
 const STATUS_DOTS: Record<Project["status"], string> = {
   planning: "bg-cyan",
