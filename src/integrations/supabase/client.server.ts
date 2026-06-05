@@ -1,0 +1,24 @@
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "./types";
+
+/**
+ * Server-only Supabase client. Préfère la service_role si dispo (bypass RLS),
+ * sinon retombe sur anon. Ne JAMAIS importer depuis du code client.
+ */
+export function getSupabaseAdmin(): SupabaseClient<Database> {
+  const url = process.env.SUPABASE_URL ?? process.env.VITE_SUPABASE_URL;
+  const key =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ??
+    process.env.SUPABASE_ANON_KEY ??
+    process.env.VITE_SUPABASE_ANON_KEY;
+
+  if (!url || !key) {
+    throw new Error(
+      "Supabase non configuré côté serveur (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY manquant).",
+    );
+  }
+
+  return createClient<Database>(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
