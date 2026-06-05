@@ -87,6 +87,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Nebula — Gestion de projets IA" },
       { name: "description", content: "Gère tous tes projets dynamiquement avec un assistant IA dédié par projet." },
+      { property: "og:title", content: "Nebula — Gestion de projets IA" },
+      { name: "twitter:title", content: "Nebula — Gestion de projets IA" },
+      { property: "og:description", content: "Gère tous tes projets dynamiquement avec un assistant IA dédié par projet." },
+      { name: "twitter:description", content: "Gère tous tes projets dynamiquement avec un assistant IA dédié par projet." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b96893b7-f6d0-4284-9d78-c24cc23f889b/id-preview-b302c6f8--f9a451df-9202-4fd2-9884-14ded8bcf62f.lovable.app-1780685034034.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b96893b7-f6d0-4284-9d78-c24cc23f889b/id-preview-b302c6f8--f9a451df-9202-4fd2-9884-14ded8bcf62f.lovable.app-1780685034034.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       {
